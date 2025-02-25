@@ -1,42 +1,65 @@
 ---
 title: blog搭建
+tags:
+  - Hexo
+  - butterfly
+categories: 博客搭建
+abbrlink: e6a32f0a
 date: 2025-02-07 10:05:59
-tags: [标签,Vue学习]
-categories: 分类
-shuoshuo: 说说
 ---
-Welcome to [Hexo](https://hexo.io/)! This is your very first post. Check [documentation](https://hexo.io/docs/) for more info. If you get any problems when using Hexo, you can find the answer in [troubleshooting](https://hexo.io/docs/troubleshooting.html) or you can ask me on [GitHub](https://github.com/hexojs/hexo/issues).
 
-## Quick Start
+这篇文章记录了简易博客的搭建过程。我使用的搭建工具是 Hexo，主题是 butterfly。
+Hexo: https://hexo.io/
+butterfly: https://butterfly.js.org/
 
-### Create a new post
+## 安装 Hexo
 
-``` bash
-$ hexo new "My New Post"
+```bash
+$ pnpm install hexo -g
 ```
 
-More info: [Writing](https://hexo.io/docs/writing.html)
+详细的安装方法: https://hexo.io/zh-cn/docs/
 
-### Run server
+## 创建 Hexo 项目
 
-``` bash
-$ hexo server
+### 创建文件夹 blog
+
+### 初始化 Hexo
+
+进入文件夹 blog，然后初始化 Hexo 项目
+
+```bash
+$ hexo init
+$ pnpm install
 ```
 
-More info: [Server](https://hexo.io/docs/server.html)
+## 安装 butterfly 主题
 
-### Generate static files
+### 安装
 
-``` bash
-$ hexo generate
+```bash
+$ pnpm install hexo-theme-butterfly
 ```
 
-More info: [Generating](https://hexo.io/docs/generating.html)
+### 应用主题
 
-### Deploy to remote sites
+修改 blog 根目录下的 \_config.yml，把主题改为 butterfly
 
-``` bash
-$ hexo deploy
+```yaml
+theme: butterfly
 ```
 
-More info: [Deployment](https://hexo.io/docs/one-command-deployment.html)
+### 安装插件
+
+```bash
+$ pnpm install hexo-renderer-pug hexo-renderer-stylus
+```
+
+### 创建配置文件
+
+在 blog 根目录下创建一个文件`_config.butterfly.yml`，并将`blog/node_modules/hexo-theme-butterfly/_config.yml`中的内容复制到`_config.butterfly.yml`中。
+
+## 启动
+```bash
+$ pnpm run server
+```
